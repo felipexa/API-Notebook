@@ -1,0 +1,51 @@
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.exe
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.csprojAssemblyReference.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.RazorAssemblyInfo.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.RazorAssemblyInfo.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.AssemblyInfoInputs.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.AssemblyInfo.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.TagHelpers.input.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.TagHelpers.output.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.RazorCoreGenerate.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.RazorTargetAssemblyInfo.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.RazorTargetAssemblyInfo.cs
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\staticwebassets\API Notebook.StaticWebAssets.Manifest.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\staticwebassets\API Notebook.StaticWebAssets.xml
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.deps.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.runtimeconfig.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.runtimeconfig.dev.json
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.pdb
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.Views.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\API Notebook.Views.pdb
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.csproj.CoreCompileInputs.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.Views.pdb
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.csproj.CopyComplete
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.dll
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.pdb
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.genruntimeconfig.cache
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API_Notebook.Migrations.Notebook.resources
+C:\Users\felii\Desktop\Senff\API Notebook\API Notebook\obj\Debug\netcoreapp3.1\API Notebook.csproj.GenerateResource.cache
