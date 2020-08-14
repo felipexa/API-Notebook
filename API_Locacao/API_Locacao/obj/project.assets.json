@@ -8593,11 +8593,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felii\\Desktop\\Senff\\API_Locacao\\API_Locacao\\API_Locacao.csproj",
+      "projectUniqueName": "C:\\Users\\felii\\Desktop\\Senff\\API-Notebook\\API_Locacao\\API_Locacao\\API_Locacao.csproj",
       "projectName": "API_Locacao",
-      "projectPath": "C:\\Users\\felii\\Desktop\\Senff\\API_Locacao\\API_Locacao\\API_Locacao.csproj",
+      "projectPath": "C:\\Users\\felii\\Desktop\\Senff\\API-Notebook\\API_Locacao\\API_Locacao\\API_Locacao.csproj",
       "packagesPath": "C:\\Users\\felii\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felii\\Desktop\\Senff\\API_Locacao\\API_Locacao\\obj\\",
+      "outputPath": "C:\\Users\\felii\\Desktop\\Senff\\API-Notebook\\API_Locacao\\API_Locacao\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
