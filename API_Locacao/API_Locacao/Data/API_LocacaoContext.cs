@@ -14,9 +14,7 @@ namespace API_Locacao.Data
         {
         }
 
-        public DbSet<API_Locacao.Models.Cliente> Cliente { get; set; }
-
-        public DbSet<API_Locacao.Models.Cotacao> Cotacao { get; set; }
+        public DbSet<API_Locacao.Models.Cliente> Cliente { get; set; }       
 
         public DbSet<API_Locacao.Models.Produto> Produto { get; set; }
 

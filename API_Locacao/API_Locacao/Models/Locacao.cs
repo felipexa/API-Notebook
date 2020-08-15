@@ -11,14 +11,17 @@ namespace API_Locacao.Models
 
         [Key]
         public int LocacaoId { get; set; }
+
         public DateTime DataInicio { get; set; }
         public DateTime DataFinal { get; set; }
         public int Dias { get; set; }
+        
+        public decimal ValorDiaria { get; set; }
+        public decimal ValorTotal { get; set; }
 
-        public Cotacao Cotacao { get; set; }
+
         public Cliente Cliente { get; set; }
-        public Produto Produto { get; set; }
-        public int CotacaoId { get; set; }
+        public Produto Produto { get; set; }      
         public int ClienteId { get; set; }
         public int ProdutoId { get; set; }
     }

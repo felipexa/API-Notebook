@@ -22,7 +22,7 @@ namespace API_Locacao.Controllers
         // GET: Locacao
         public async Task<IActionResult> Index()
         {
-            var aPI_LocacaoContext = _context.Locacao.Include(l => l.Cliente).Include(l => l.Cotacao).Include(l => l.Produto);
+            var aPI_LocacaoContext = _context.Locacao.Include(l => l.Cliente).Include(l => l.Produto);
             return View(await aPI_LocacaoContext.ToListAsync());
         }
 
@@ -36,7 +36,6 @@ namespace API_Locacao.Controllers
 
             var locacao = await _context.Locacao
                 .Include(l => l.Cliente)
-                .Include(l => l.Cotacao)
                 .Include(l => l.Produto)
                 .FirstOrDefaultAsync(m => m.LocacaoId == id);
             if (locacao == null)
@@ -51,7 +50,6 @@ namespace API_Locacao.Controllers
         public IActionResult Create()
         {
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId");
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId");
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId");
             return View();
         }
@@ -61,7 +59,7 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LocacaoId,DataInicio,DataFinal,Dias,CotacaoId,ClienteId,ProdutoId")] Locacao locacao)
+        public async Task<IActionResult> Create([Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +68,6 @@ namespace API_Locacao.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -89,7 +86,6 @@ namespace API_Locacao.Controllers
                 return NotFound();
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -99,7 +95,7 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LocacaoId,DataInicio,DataFinal,Dias,CotacaoId,ClienteId,ProdutoId")] Locacao locacao)
+        public async Task<IActionResult> Edit(int id, [Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
         {
             if (id != locacao.LocacaoId)
             {
@@ -127,7 +123,6 @@ namespace API_Locacao.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -142,7 +137,6 @@ namespace API_Locacao.Controllers
 
             var locacao = await _context.Locacao
                 .Include(l => l.Cliente)
-                .Include(l => l.Cotacao)
                 .Include(l => l.Produto)
                 .FirstOrDefaultAsync(m => m.LocacaoId == id);
             if (locacao == null)

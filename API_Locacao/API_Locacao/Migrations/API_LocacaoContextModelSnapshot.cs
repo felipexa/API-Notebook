@@ -49,27 +49,6 @@ namespace API_Locacao.Migrations
                     b.ToTable("Cliente");
                 });
 
-            modelBuilder.Entity("API_Locacao.Models.Cotacao", b =>
-                {
-                    b.Property<int>("CotacaoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Taxa")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorDiaria")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("CotacaoId");
-
-                    b.ToTable("Cotacao");
-                });
-
             modelBuilder.Entity("API_Locacao.Models.Devolucao", b =>
                 {
                     b.Property<int>("DevolucaoId")
@@ -103,9 +82,6 @@ namespace API_Locacao.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CotacaoId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DataFinal")
                         .HasColumnType("datetime2");
 
@@ -118,11 +94,15 @@ namespace API_Locacao.Migrations
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("ValorDiaria")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("LocacaoId");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("CotacaoId");
 
                     b.HasIndex("ProdutoId");
 
@@ -185,12 +165,6 @@ namespace API_Locacao.Migrations
                     b.HasOne("API_Locacao.Models.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("API_Locacao.Models.Cotacao", "Cotacao")
-                        .WithMany()
-                        .HasForeignKey("CotacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
