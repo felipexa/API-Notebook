@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using API_Locacao.Data;
 using API_Locacao.Models;
+using System.Net.Security;
 
 namespace API_Locacao.Controllers
 {
@@ -49,8 +50,8 @@ namespace API_Locacao.Controllers
         // GET: Locacao/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId");
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId");
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "Modelo");
             return View();
         }
 
@@ -63,9 +64,25 @@ namespace API_Locacao.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(locacao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                Produto prod = await _context.Produto
+              .FirstOrDefaultAsync(m => m.ProdutoId == locacao.ProdutoId);
+
+                if (prod.Status.Equals("Disponível")){
+                    
+                  
+                    if (prod != null)
+                    {
+                        prod.Status = "Locado";
+                    
+                        _context.Add(locacao);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                }
+
+
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);

@@ -61,9 +61,23 @@ namespace API_Locacao.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(devolucao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Produto prod = await _context.Produto
+                .FirstOrDefaultAsync(m => m.ProdutoId == devolucao.LocacaoId);
+
+                if (prod.Status.Equals("Locado"))
+                {
+
+
+                    if (prod != null)
+                    {
+                        prod.Status = "Disponível";
+
+                        _context.Add(devolucao);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                }
             }
             ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
             return View(devolucao);

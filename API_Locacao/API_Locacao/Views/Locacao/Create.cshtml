@@ -38,11 +38,11 @@
                 <span asp-validation-for="ValorTotal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cliente" class="control-label"></label>
+                <label asp-for="ClienteId" class="control-label">Cliente</label>
                 <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Produto" class="control-label"></label>
+                <label asp-for="ProdutoId" class="control-label">Produto</label>
                 <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId"></select>
             </div>
             <div class="form-group">
@@ -67,6 +67,14 @@
         var diferenca = (fim - inicio)
 
         document.getElementById("Dias").value = diferenca
+
+        
+        var dias = document.getElementById("Dias").value
+        var diaria = document.getElementById("ValorDiaria").value
+
+        document.getElementById("ValorTotal").value = dias * diaria
+
+        
 
 
     }
