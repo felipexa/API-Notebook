@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Correios.CEP.Net/1.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/Correios.Net.dll": {}
+        },
+        "runtime": {
+          "lib/Correios.Net.dll": {}
+        }
+      },
       "Humanizer.Core/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -2696,6 +2705,19 @@
     }
   },
   "libraries": {
+    "Correios.CEP.Net/1.1.6": {
+      "sha512": "5xiGLVdvGxlG5SnOYHusZnAyveuxVQaqTkW002iV7sFeWZlhzxaUUE/ghjhnr+dh6ic+HauYnY9zGcg74fzH2Q==",
+      "type": "package",
+      "path": "correios.cep.net/1.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "correios.cep.net.1.1.6.nupkg.sha512",
+        "correios.cep.net.nuspec",
+        "lib/Correios.Net.dll",
+        "lib/Correios.Net.pdb"
+      ]
+    },
     "Humanizer.Core/2.2.0": {
       "sha512": "rsYXB7+iUPP8AHgQ8JP2UZI2xK2KhjcdGr9E6zX3CsZaTLCaw8M35vaAJRo1rfxeaZEVMuXeaquLVCkZ7JcZ5Q==",
       "type": "package",
@@ -8707,6 +8729,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Correios.CEP.Net >= 1.1.6",
       "Microsoft.CodeAnalysis.CSharp.Workspaces >= 3.7.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.6",
@@ -8756,6 +8779,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Correios.CEP.Net": {
+            "target": "Package",
+            "version": "[1.1.6, )"
+          },
           "Microsoft.CodeAnalysis.CSharp.Workspaces": {
             "target": "Package",
             "version": "[3.7.0, )"
@@ -8800,5 +8827,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Correios.CEP.Net 1.1.6' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Correios.CEP.Net",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

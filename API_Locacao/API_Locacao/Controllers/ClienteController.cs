@@ -63,8 +63,8 @@ namespace API_Locacao.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
+     
         }
-
         // GET: Cliente/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
