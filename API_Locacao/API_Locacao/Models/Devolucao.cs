@@ -12,9 +12,11 @@ namespace API_Locacao.Models
         [Key]
         public int DevolucaoId { get; set; }
         public DateTime Data { get; set; }
-        public decimal Multa { get; set; }
+    
 
         public Locacao Locacao { get; set; }
+        public Produto Produto { get; set; }
+        public int ProdutoId { get; set; }
         public int LocacaoId { get; set; }
     }
 }
