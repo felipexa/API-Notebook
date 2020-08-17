@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>Locacao</h4>
 <hr />
@@ -29,9 +29,14 @@
                 <span asp-validation-for="Dias" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CotacaoId" class="control-label"></label>
-                <select asp-for="CotacaoId" class="form-control" asp-items="ViewBag.CotacaoId"></select>
-                <span asp-validation-for="CotacaoId" class="text-danger"></span>
+                <label asp-for="ValorDiaria" class="control-label"></label>
+                <input asp-for="ValorDiaria" class="form-control" />
+                <span asp-validation-for="ValorDiaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorTotal" class="control-label"></label>
+                <input asp-for="ValorTotal" class="form-control" />
+                <span asp-validation-for="ValorTotal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClienteId" class="control-label"></label>
@@ -44,14 +49,14 @@
                 <span asp-validation-for="ProdutoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

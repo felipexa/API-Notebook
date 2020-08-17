@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using API_Locacao.Data;
 using API_Locacao.Models;
+using System.Net.Security;
 
 namespace API_Locacao.Controllers
 {
@@ -22,7 +23,7 @@ namespace API_Locacao.Controllers
         // GET: Locacao
         public async Task<IActionResult> Index()
         {
-            var aPI_LocacaoContext = _context.Locacao.Include(l => l.Cliente).Include(l => l.Cotacao).Include(l => l.Produto);
+            var aPI_LocacaoContext = _context.Locacao.Include(l => l.Cliente).Include(l => l.Produto);
             return View(await aPI_LocacaoContext.ToListAsync());
         }
 
@@ -36,7 +37,6 @@ namespace API_Locacao.Controllers
 
             var locacao = await _context.Locacao
                 .Include(l => l.Cliente)
-                .Include(l => l.Cotacao)
                 .Include(l => l.Produto)
                 .FirstOrDefaultAsync(m => m.LocacaoId == id);
             if (locacao == null)
@@ -50,9 +50,8 @@ namespace API_Locacao.Controllers
         // GET: Locacao/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId");
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId");
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId");
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "Modelo");
             return View();
         }
 
@@ -61,16 +60,31 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LocacaoId,DataInicio,DataFinal,Dias,CotacaoId,ClienteId,ProdutoId")] Locacao locacao)
+        public async Task<IActionResult> Create([Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(locacao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                Produto prod = await _context.Produto
+              .FirstOrDefaultAsync(m => m.ProdutoId == locacao.ProdutoId);
+
+                if (prod.Status.Equals("Disponível")){
+                    
+                  
+                    if (prod != null)
+                    {
+                        prod.Status = "Locado";
+                    
+                        _context.Add(locacao);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                }
+
+
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -89,7 +103,6 @@ namespace API_Locacao.Controllers
                 return NotFound();
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -99,7 +112,7 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LocacaoId,DataInicio,DataFinal,Dias,CotacaoId,ClienteId,ProdutoId")] Locacao locacao)
+        public async Task<IActionResult> Edit(int id, [Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
         {
             if (id != locacao.LocacaoId)
             {
@@ -127,7 +140,6 @@ namespace API_Locacao.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["CotacaoId"] = new SelectList(_context.Cotacao, "CotacaoId", "CotacaoId", locacao.CotacaoId);
             ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
             return View(locacao);
         }
@@ -142,7 +154,6 @@ namespace API_Locacao.Controllers
 
             var locacao = await _context.Locacao
                 .Include(l => l.Cliente)
-                .Include(l => l.Cotacao)
                 .Include(l => l.Produto)
                 .FirstOrDefaultAsync(m => m.LocacaoId == id);
             if (locacao == null)

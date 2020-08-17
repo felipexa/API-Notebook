@@ -4,48 +4,44 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 py-5 text-center " style="cursor:pointer; text-decoration:none;">
+            <div class="col-md-6 py-5 text-center " style="cursor:pointer; text-decoration:none;">
                 <div class="" style="border:5px solid #131313; background:white ">
                     <a asp-controller="Cliente" asp-action="Index" style="        text-decoration: none;">
-
+                        <img class="imgs-inicio" src="~/img/cliente.svg" style="cursor:pointer; text-decoration:none" />
                         <h1 class="py-4" style="color:black">Cliente</h1>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 py-5 text-center " style="cursor:pointer; text-decoration:none;">
-                <div class="" style="border:5px solid #131313; background:white ">
-                    
-                    <a asp-controller="Produto" asp-action="Index" style="        text-decoration: none;">
-
-                        <h1 style="color:black">Catálogo de Produtos</h1>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 py-5 text-center " style="cursor:pointer; text-decoration:none;">
-                <div class="" style="border:5px solid #131313; background:white ">
-                    <a asp-controller="Cotacao" asp-action="Index" style="        text-decoration: none;">
-
-                        <h1 class="py-4" style="color:black">Cotação</h1>
                     </a>
                 </div>
             </div>
             <div class="col-md-6 py-5 text-center " style="cursor:pointer; text-decoration:none;">
                 <div class="" style="border:5px solid #131313; background:white ">
-                    <a asp-controller="Locacao" asp-action="Index" style="        text-decoration: none;">
 
-                        <h1 class="py-3" style="color:black">Locação</h1>
+                    <a asp-controller="Produto" asp-action="Index" style="        text-decoration: none;">
+                        <img class="imgs-inicio" src="~/img/notebook.svg" style="cursor:pointer; text-decoration:none; width:98px; height:98px;" />
+                        <h1 class="py-4" style="color:black">Catálogo de Produtos</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 py-5 text-center " style="cursor:pointer; text-decoration:none;">
+                <div class="" style="border:5px solid #131313; background:white ">
+                    <a asp-controller="Locacao" asp-action="Index" style="        text-decoration: none;">
+                        <img class="imgs-inicio" src="~/img/dinheiro.svg" style="cursor:pointer; text-decoration:none; width:100px; height:80px; margin-top:20px;" />
+                        <h1 class="py-4" style="color:black">Locação</h1>
                     </a>
                 </div>
             </div>
             <div class="col-md-6  py-5 text-center " style="cursor:pointer; text-decoration:none;">
                 <div class="" style="border:5px solid #131313; background:white ">
-                   
-                    <a asp-controller="Devolucao" asp-action="Index" style="        text-decoration: none;">
 
-                        <h1 class="py-3" style="color:black">Devolução</h1>
+                    <a asp-controller="Devolucao" asp-action="Index" style="        text-decoration: none;">
+                        <img class="imgs-inicio" src="~/img/devolucao.svg" style="cursor:pointer; text-decoration:none; width:100px; height:80px; margin-top:20px;" />
+                        <h1 class="py-4" style="color:black">Devolução</h1>
                     </a>
                 </div>
             </div>
 
+       
         </div>
     </div>

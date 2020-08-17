@@ -22,7 +22,7 @@ namespace API_Locacao.Controllers
         // GET: Devolucao
         public async Task<IActionResult> Index()
         {
-            var aPI_LocacaoContext = _context.Devolucao.Include(d => d.Locacao);
+            var aPI_LocacaoContext = _context.Devolucao.Include(d => d.Locacao).Include(d => d.Produto);
             return View(await aPI_LocacaoContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace API_Locacao.Controllers
 
             var devolucao = await _context.Devolucao
                 .Include(d => d.Locacao)
+                .Include(d => d.Produto)
                 .FirstOrDefaultAsync(m => m.DevolucaoId == id);
             if (devolucao == null)
             {
@@ -49,6 +50,7 @@ namespace API_Locacao.Controllers
         public IActionResult Create()
         {
             ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId");
             return View();
         }
 
@@ -57,15 +59,32 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DevolucaoId,Data,Multa,LocacaoId")] Devolucao devolucao)
+        public async Task<IActionResult> Create([Bind("DevolucaoId,Data,ProdutoId,LocacaoId")] Devolucao devolucao)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(devolucao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                Produto prod = await _context.Produto
+               .FirstOrDefaultAsync(m => m.ProdutoId == devolucao.ProdutoId);
+
+                if (prod.Status.Equals("Locado"))
+                {
+
+
+                    if (prod != null)
+                    {
+                        prod.Status = "Disponível";
+
+                        _context.Add(devolucao);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                }
+                
             }
             ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
             return View(devolucao);
         }
 
@@ -83,6 +102,7 @@ namespace API_Locacao.Controllers
                 return NotFound();
             }
             ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
             return View(devolucao);
         }
 
@@ -91,7 +111,7 @@ namespace API_Locacao.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DevolucaoId,Data,Multa,LocacaoId")] Devolucao devolucao)
+        public async Task<IActionResult> Edit(int id, [Bind("DevolucaoId,Data,ProdutoId,LocacaoId")] Devolucao devolucao)
         {
             if (id != devolucao.DevolucaoId)
             {
@@ -119,6 +139,7 @@ namespace API_Locacao.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
             return View(devolucao);
         }
 
@@ -132,6 +153,7 @@ namespace API_Locacao.Controllers
 
             var devolucao = await _context.Devolucao
                 .Include(d => d.Locacao)
+                .Include(d => d.Produto)
                 .FirstOrDefaultAsync(m => m.DevolucaoId == id);
             if (devolucao == null)
             {
