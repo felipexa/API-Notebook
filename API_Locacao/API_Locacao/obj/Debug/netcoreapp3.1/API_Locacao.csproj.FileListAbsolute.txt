@@ -339,16 +339,10 @@ C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netc
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Edit.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Index.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Devolucao\Create.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Devolucao\Delete.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Devolucao\Details.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Devolucao\Edit.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Devolucao\Index.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Create.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Delete.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Details.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Edit.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Index.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -366,9 +360,7 @@ C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netc
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\API_Locacao.genruntimeconfig.cache
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Locacao\Create.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Locacao\Delete.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Locacao\Details.cshtml.g.cs
-C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Locacao\Edit.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\Razor\Views\Locacao\Index.cshtml.g.cs
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\bin\Debug\netcoreapp3.1\Correios.Net.dll
 C:\Users\felii\Desktop\Senff\API-Notebook\API_Locacao\API_Locacao\obj\Debug\netcoreapp3.1\API_Locacao.csproj.CoreCompileInputs.cache

@@ -26,7 +26,7 @@ namespace API_Locacao.Controllers
             return View(await aPI_LocacaoContext.ToListAsync());
         }
 
-        // GET: Devolucao/Details/5
+        // GET: Devolucao/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,14 +49,12 @@ namespace API_Locacao.Controllers
         // GET: Devolucao/Create
         public IActionResult Create()
         {
-            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId");
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId");
+            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "ClienteId");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "Modelo");
             return View();
         }
 
-        // POST: Devolucao/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Devolucao/Create     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DevolucaoId,Data,ProdutoId,LocacaoId")] Devolucao devolucao)
@@ -79,101 +77,18 @@ namespace API_Locacao.Controllers
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
+                   
 
                 }
-                
+                ModelState.AddModelError
+                  ("", "Esse produto já foi devolvido!");
+
             }
-            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
+            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "ClienteId");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "Modelo");
             return View(devolucao);
         }
-
-        // GET: Devolucao/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var devolucao = await _context.Devolucao.FindAsync(id);
-            if (devolucao == null)
-            {
-                return NotFound();
-            }
-            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
-            return View(devolucao);
-        }
-
-        // POST: Devolucao/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DevolucaoId,Data,ProdutoId,LocacaoId")] Devolucao devolucao)
-        {
-            if (id != devolucao.DevolucaoId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(devolucao);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DevolucaoExists(devolucao.DevolucaoId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["LocacaoId"] = new SelectList(_context.Locacao, "LocacaoId", "LocacaoId", devolucao.LocacaoId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", devolucao.ProdutoId);
-            return View(devolucao);
-        }
-
-        // GET: Devolucao/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var devolucao = await _context.Devolucao
-                .Include(d => d.Locacao)
-                .Include(d => d.Produto)
-                .FirstOrDefaultAsync(m => m.DevolucaoId == id);
-            if (devolucao == null)
-            {
-                return NotFound();
-            }
-
-            return View(devolucao);
-        }
-
-        // POST: Devolucao/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var devolucao = await _context.Devolucao.FindAsync(id);
-            _context.Devolucao.Remove(devolucao);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
+       
         private bool DevolucaoExists(int id)
         {
             return _context.Devolucao.Any(e => e.DevolucaoId == id);
