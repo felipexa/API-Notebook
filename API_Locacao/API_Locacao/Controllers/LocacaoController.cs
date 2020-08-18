@@ -9,9 +9,11 @@ using API_Locacao.Data;
 using API_Locacao.Models;
 using System.Net.Security;
 using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Locacao.Controllers
 {
+    
     public class LocacaoController : Controller
     {
         private readonly API_LocacaoContext _context;
