@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using API_Locacao.Data;
 using API_Locacao.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Locacao.Controllers
 {
