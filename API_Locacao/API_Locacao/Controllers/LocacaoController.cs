@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API_Locacao.Controllers
 {
+    
     public class LocacaoController : Controller
     {
         private readonly API_LocacaoContext _context;
