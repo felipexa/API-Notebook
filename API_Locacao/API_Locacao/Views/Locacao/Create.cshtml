@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar</h1>
 
-<h4>Locacao</h4>
+
+<h4>Locação</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -34,26 +34,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="ValorTotal" class="control-label"></label>
-                <input asp-for="ValorTotal" class="form-control" />
+                <input asp-for="ValorTotal" class="form-control" readonly/>
                 <span asp-validation-for="ValorTotal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClienteId" class="control-label">Cliente</label>
+                <label asp-for="ClienteId" class="control-label">CLIENTE:</label>
                 <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ProdutoId" class="control-label">Produto</label>
+                <label asp-for="ProdutoId" class="control-label">PRODUTO:</label>
                 <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-primary" />
+                <input type="submit" value="ALOCAR" class="btn-add w-50 rounded-pill" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index">VOLTAR</a>
 </div>
 
 <script>

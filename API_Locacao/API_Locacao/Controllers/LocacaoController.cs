@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using API_Locacao.Data;
 using API_Locacao.Models;
 using System.Net.Security;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace API_Locacao.Controllers
 {
@@ -27,7 +28,7 @@ namespace API_Locacao.Controllers
             return View(await aPI_LocacaoContext.ToListAsync());
         }
 
-        // GET: Locacao/Details/5
+        // GET: Locacao/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -55,9 +56,7 @@ namespace API_Locacao.Controllers
             return View();
         }
 
-        // POST: Locacao/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Locacao/Create        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
@@ -81,103 +80,18 @@ namespace API_Locacao.Controllers
                     }
 
                 }
-
+                ModelState.AddModelError
+                    ("", "Esse produto já está locado!");
 
             }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "Modelo");
             return View(locacao);
-        }
-
-        // GET: Locacao/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var locacao = await _context.Locacao.FindAsync(id);
-            if (locacao == null)
-            {
-                return NotFound();
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
-            return View(locacao);
-        }
-
-        // POST: Locacao/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LocacaoId,DataInicio,DataFinal,Dias,ValorDiaria,ValorTotal,ClienteId,ProdutoId")] Locacao locacao)
-        {
-            if (id != locacao.LocacaoId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(locacao);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LocacaoExists(locacao.LocacaoId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", locacao.ClienteId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produto, "ProdutoId", "ProdutoId", locacao.ProdutoId);
-            return View(locacao);
-        }
-
-        // GET: Locacao/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var locacao = await _context.Locacao
-                .Include(l => l.Cliente)
-                .Include(l => l.Produto)
-                .FirstOrDefaultAsync(m => m.LocacaoId == id);
-            if (locacao == null)
-            {
-                return NotFound();
-            }
-
-            return View(locacao);
-        }
-
-        // POST: Locacao/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var locacao = await _context.Locacao.FindAsync(id);
-            _context.Locacao.Remove(locacao);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool LocacaoExists(int id)
         {
-            return _context.Locacao.Any(e => e.LocacaoId == id);
+            return _context.Locacao.Any(e => e.LocacaoId == id);           
         }
     }
 }
